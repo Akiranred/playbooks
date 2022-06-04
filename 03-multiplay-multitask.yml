@@ -1,0 +1,30 @@
+- name: Update web servers
+  hosts: web
+
+  tasks:
+  - name: Create a folder
+    file:
+      path: /home/ec2-user/folder
+      state: directory
+
+- name: Update db servers
+  hosts: db
+
+  tasks:
+  - name: create helloworld.txt
+    copy:
+      dest: /home/ec2-user/helloworld.txt
+      content: Helloworld
+
+- name: Update app servers
+  hosts: app
+
+  tasks:
+  - name: download url
+    get_url:
+      dest: /home/ec2-user
+      url: https://filesamples.com/samples/document/txt/sample3.txt
+
+
+
+

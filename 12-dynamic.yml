@@ -1,0 +1,11 @@
+- name: Update all servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: update page on all servers
+    copy:
+      src: dynamic.j2
+      dest: /var/www/html/dynamic.html
+
+ 

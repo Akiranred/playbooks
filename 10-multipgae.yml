@@ -1,0 +1,17 @@
+- name: Update all servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: update page on centos
+    copy:
+      src: centos.html
+      dest: /var/www/html
+    when: ansible_distribution == "CentOS"
+
+  - name: update page on ubuntu
+    copy:
+      src: ubuntu.html
+      dest: /var/www/html
+    when: ansible_distribution == "Ubuntu"
+

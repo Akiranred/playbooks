@@ -1,0 +1,21 @@
+- name: Update web servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install httpd
+    package:
+      name: httpd
+      state: present
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+
+  - name: enable httpd
+    service:
+      name: httpd
+      enabled: yes
+
+

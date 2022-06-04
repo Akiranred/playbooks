@@ -1,0 +1,10 @@
+- name: Update all servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: update page on all servers
+    copy:
+      src: static.html
+      dest: /var/www/html
+ 

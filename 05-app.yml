@@ -1,0 +1,30 @@
+- name: Update db servers
+  hosts: db
+  become: yes
+
+  tasks:
+  - name: install git
+    package:
+      name: git
+      state: present
+
+  - name: deploy ecomm app
+    git:
+      dest: /var/www/html
+      repo: https://github.com/Akiranred/ecomm.git
+
+
+- name: Update app servers
+  hosts: app
+  become: yes
+
+  tasks:
+  - name: install git
+    package:
+      name: git
+      state: present
+
+  - name: deploy food app
+    git:
+      dest: /var/www/html
+      repo: https://github.com/Akiranred/food.git

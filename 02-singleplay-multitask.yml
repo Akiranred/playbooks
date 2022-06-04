@@ -1,0 +1,18 @@
+- name: Update web servers
+  hosts: all
+
+  tasks:
+  - name: Ensure Dir Web,App,Db is created
+    file:
+      path: /home/ec2-user/WEB
+      state: directory
+  - name: Ensure Dir Web,App,Db is created
+    file:
+      path: /home/ec2-user/APP
+      state: directory
+  - name: Ensure Dir Web,App,Db is created
+    file:
+      path: /home/ec2-user/DB
+      state: directory
+
+

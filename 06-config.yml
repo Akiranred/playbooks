@@ -1,0 +1,11 @@
+- name: Update all servers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Ensure Config is updated
+    copy:
+      src: /home/ec2-user/httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
+
+
